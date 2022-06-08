@@ -37,7 +37,7 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          command: npm run frontend:install && npm run frontend:build && npm run deploy
+          command: npm run frontend:install && npm run frontend:build && npm run frontend:deploy
       - run:
           name : API Deploy
           command: "npm run api:deploy"   
