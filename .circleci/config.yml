@@ -49,9 +49,6 @@ workflows:
       - deploy
             
 filters:
-            branches:
-              only:
-                - master
-          type: approval
-          requires:
-            - build
+  branches:
+    only:
+      -/main\/.*/
