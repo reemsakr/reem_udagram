@@ -33,7 +33,7 @@ jobs:
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install 
-      - eb/setup
+      - aws-elastic-beanstalk/setup
       - aws-cli/setup
       - checkout
       - run:
