@@ -37,8 +37,13 @@ jobs:
       - aws-elastic-beanstalk/setup
       - aws-cli/setup
       - checkout
+      
       - run:
           command: npm run frontend:install && npm run frontend:build && npm run frontend:deploy
+      - run:
+          command: npm run eb:init
+      - run:
+          command: npm run eb:create
       - run:
           command: npm run api:install && npm run api:build && npm run api:deploy  
 workflows:
