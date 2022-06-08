@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "aws s3 cp --recursive --acl public-read ./www s3://reem-udagram2/",
+    "deploy": "aws s3 cp --recursive --acl public-read www s3://reem-udagram2/",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
