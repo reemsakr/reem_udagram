@@ -39,8 +39,7 @@ jobs:
       - run:
           command: npm run frontend:install && npm run frontend:build && npm run frontend:deploy
       - run:
-          name : API Deploy
-          command: "npm run api:deploy"   
+          command: npm run api:install && npm run api:build && npm run api:deploy  
 workflows:
   udagram:
     jobs:
