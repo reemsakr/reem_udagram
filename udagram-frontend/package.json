@@ -7,8 +7,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "aws s3 cp --recursive --acl public-read www s3://reem-udagram2/",
     "test": "ng test --watch=false",
+    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
