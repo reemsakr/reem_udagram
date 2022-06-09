@@ -12,7 +12,7 @@
         "api:start": "cd udagram-api && npm run dev",
         "api:deploy": "cd udagram-api && npm run eb:env && npm run deploy",
         "eb:init": "cd udagram-api && eb init udagram-api --platform node.js --region us-east-1",
-        "eb:create": "cd udagram-api && eb create --sample udagram-api-env"
+        "eb:create": "cd udagram-api && eb create --sample udagram-back"
 
     },
     "devDependencies": {
