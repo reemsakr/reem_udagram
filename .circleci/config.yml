@@ -11,12 +11,14 @@ jobs:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
     steps:  
-      - node/install 
+      - node/install
+      - aws-elastic-beanstalk/setup
+      - aws-cli/setup
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
-          command: "npm run frontend:install"       
+          command: npm run frontend:install      
       - run:
           name: Install API Dependencies
           command: "npm run api:install"
@@ -28,24 +30,13 @@ jobs:
           command: "npm run api:build"
               
   # deploy step will run only after manual approval
-  deploy:
-    docker:
-      - image: "cimg/node:14.15"
       # more setup needed for aws, node, elastic beanstalk
-    steps:
-      - node/install 
-      - aws-elastic-beanstalk/setup
-      - aws-cli/setup
-      - checkout
-      
       - run:
-          command: npm run frontend:install && npm run frontend:build && npm run frontend:deploy
+          name: API deploy
+          command: npm run api:deploy  
       - run:
-          command: npm run eb:init
-      - run:
-          command: npm run eb:create
-      - run:
-          command: npm run api:install && npm run api:build && npm run api:deploy  
+          name: Front-End deploy
+          command: npm run frontend:deploy 
 workflows:
   udagram:
     jobs:
